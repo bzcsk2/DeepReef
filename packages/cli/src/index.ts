@@ -2,6 +2,7 @@ import { stdin as input, stdout as output, stderr as errorOutput } from "node:pr
 import { configCommand } from "./commands/config.js"
 import { evalCommand } from "./commands/eval.js"
 import { harnessCommand } from "./commands/harness.js"
+import { formatVersion } from "./version.js"
 
 function printHelp(): void {
   output.write(`covalo - Terminal-native AI loop agent runtime
@@ -58,8 +59,7 @@ async function main(): Promise<void> {
   
   // Handle --version or -v
   if (args.includes("--version") || args.includes("-v")) {
-    // Version will be injected by build
-    output.write("covalo v0.1.1\n")
+    output.write(`${formatVersion()}\n`)
     return
   }
   
